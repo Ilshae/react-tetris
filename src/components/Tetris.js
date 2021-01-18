@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { createStage, checkCollision } from '../gameHelpers';
 
 // Styled Components
-import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
+import { StyledTetrisWrapper, StyledTetris, KeyContainer, KeyContainerFooter, UpKey, Key } from './styles/StyledTetris';
 
 // Custom Hooks
 import { useInterval } from '../hooks/useInterval';
@@ -106,6 +106,7 @@ const Tetris = () => {
       <StyledTetris>
         <Stage stage={stage} />
         <aside>
+          <StartButton callback={startGame} />
           {gameOver ? (
             <Display gameOver={gameOver} text="Game Over" />
           ) : (
@@ -115,12 +116,17 @@ const Tetris = () => {
               <Display text={`Level: ${level}`} />
             </div>
           )}
-          <StartButton callback={startGame} />
+          <KeyContainer>
+          <UpKey>
+            <Key onClick={(e) => {e.key="ArrowUp"; move(e)}}>&#8679;</Key>
+          </UpKey>
+          <KeyContainerFooter>
+            <Key onClick={(e) => {e.key="ArrowLeft"; move(e)}}>&#8678;</Key>
+            <Key onClick={(e) => {e.key="ArrowDown"; move(e)}}>&#8681;</Key>
+            <Key onClick={(e) => {e.key="ArrowRight"; move(e)}}>&#8680;</Key>
+          </KeyContainerFooter>
+        </KeyContainer>
         </aside>
-        <button onClick={(e) => {e.key="ArrowLeft"; move(e)}}>&larr;</button>
-        <button onClick={(e) => {e.key="ArrowRight"; move(e)}}>&rarr;</button>
-        <button onClick={(e) => {e.key="ArrowUp"; move(e)}}>&uarr;</button>
-        <button onClick={(e) => {e.key="ArrowDown"; move(e)}}>&darr;</button>
         
       </StyledTetris>
     </StyledTetrisWrapper>
