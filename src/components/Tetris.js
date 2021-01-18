@@ -26,8 +26,6 @@ const Tetris = () => {
     rowsCleared
   );
 
-  console.log('re-render');
-
   const movePlayer = dir => {
     if (!checkCollision(player, stage, { x: dir, y: 0 })) {
       updatePlayerPos({ x: dir, y: 0 });
@@ -80,15 +78,15 @@ const Tetris = () => {
     drop();
   };
 
-  const move = ({ keyCode }) => {
+  const move = ({ key }) => {
     if (!gameOver) {
-      if (keyCode === 37) {
+      if (key === "ArrowLeft") {
         movePlayer(-1);
-      } else if (keyCode === 39) {
+      } else if (key === "ArrowRight") {
         movePlayer(1);
-      } else if (keyCode === 40) {
+      } else if (key === "ArrowDown") {
         dropPlayer();
-      } else if (keyCode === 38) {
+      } else if (key === "ArrowUp") {
         playerRotate(stage, 1);
       }
     }
@@ -119,6 +117,11 @@ const Tetris = () => {
           )}
           <StartButton callback={startGame} />
         </aside>
+        <button onClick={(e) => {e.key="ArrowLeft"; move(e)}}>&larr;</button>
+        <button onClick={(e) => {e.key="ArrowRight"; move(e)}}>&rarr;</button>
+        <button onClick={(e) => {e.key="ArrowUp"; move(e)}}>&uarr;</button>
+        <button onClick={(e) => {e.key="ArrowDown"; move(e)}}>&darr;</button>
+        
       </StyledTetris>
     </StyledTetrisWrapper>
   );

@@ -9,6 +9,15 @@ export const StyledTetrisWrapper = styled.div`
   background-size: cover;
   overflow: hidden;
 `;
+export const Warning = styled.div`
+  display: none;
+  @media only screen {
+    display: block;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+  }
+`
 
 export const StyledTetris = styled.div`
   display: flex;
