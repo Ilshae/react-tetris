@@ -63,17 +63,16 @@ const Tetris = () => {
     }
   };
 
-  const keyUp = ({ keyCode }) => {
+  const keyUp = ({ key }) => {
     if (!gameOver) {
-      if (keyCode === 40) {
-        console.log("interval on")
+      if (key === "ArrowDown") {
         setDropTime(1000 / (level + 1) + 200);
+        console.log("DropTime");
       }
     }
   };
 
   const dropPlayer = () => {
-    console.log("interval off")
     setDropTime(null);
     drop();
   };
@@ -118,12 +117,12 @@ const Tetris = () => {
           )}
           <KeyContainer>
           <UpKey>
-            <Key onClick={(e) => {e.key="ArrowUp"; move(e)}}>&#8679;</Key>
+            <Key onClick={(e) => {e.key="ArrowUp"; move(e); keyUp(e);}}>&#8679;</Key>
           </UpKey>
           <KeyContainerFooter>
-            <Key onClick={(e) => {e.key="ArrowLeft"; move(e)}}>&#8678;</Key>
-            <Key onClick={(e) => {e.key="ArrowDown"; move(e)}}>&#8681;</Key>
-            <Key onClick={(e) => {e.key="ArrowRight"; move(e)}}>&#8680;</Key>
+            <Key onClick={(e) => {e.key="ArrowLeft"; move(e); keyUp(e);}}>&#8678;</Key>
+            <Key onClick={(e) => {e.key="ArrowDown"; move(e); keyUp(e);}}>&#8681;</Key>
+            <Key onClick={(e) => {e.key="ArrowRight"; move(e); keyUp(e);}}>&#8680;</Key>
           </KeyContainerFooter>
         </KeyContainer>
         </aside>
