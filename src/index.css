@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background: url('./img/bg.png') #000;
 }
 * {
   box-sizing: border-box;
