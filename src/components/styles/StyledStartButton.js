@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const StyledStartButton = styled.button`
   box-sizing: border-box;
-  margin: 0 0 20px 0;
+  margin: 0 auto 20px auto;
   padding: 20px;
+  width: 200px;
   min-height: 30px;
-  width: 100%;
   border-radius: 20px;
   border: none;
   color: white;

@@ -21,8 +21,8 @@ export const KeyContainerFooter = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center!important;
-  max-width: 300px!important;
   margin-bottom: 10px;
+  width: 100%;
 `
 export const UpKey = styled.div`
   margin: 0 auto;
@@ -79,8 +79,6 @@ export const StyledTetris = styled.div`
   }
   aside {
     width: 100%;
-    max-width: 300px;
-    display: block;
     padding: 0 20px;
 
     @media(max-width: 1200px) {
@@ -89,7 +87,6 @@ export const StyledTetris = styled.div`
       margin-top: 10px;
       div {
         display: flex;
-        max-width: 300px;
         text-align: center;
         justify-content: space-between;
       }    
