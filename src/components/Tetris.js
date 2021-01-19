@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { createStage, checkCollision } from '../gameHelpers';
 
 // Styled Components
-import { StyledTetrisWrapper, StyledTetris, KeyContainer, KeyContainerFooter, UpKey, Key } from './styles/StyledTetris';
+import { StyledTetrisWrapper, StyledTetris, KeyContainer, KeyContainerFooter, UpKey, Key, DisplayContainer } from './styles/StyledTetris';
 
 // Custom Hooks
 import { useInterval } from '../hooks/useInterval';
@@ -109,11 +109,11 @@ const Tetris = () => {
           {gameOver ? (
             <Display gameOver={gameOver} text="Game Over" />
           ) : (
-            <div>
+            <DisplayContainer>
               <Display text={`Score: ${score}`} />
               <Display text={`Rows: ${rows}`} />
               <Display text={`Level: ${level}`} />
-            </div>
+            </DisplayContainer>
           )}
           <KeyContainer>
           <UpKey>

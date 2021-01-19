@@ -68,13 +68,14 @@ export const StyledTetris = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 40px;
+  padding: 20px;
   margin: 0 auto;
   max-width: 900px;
   height: 100%;
   @media(max-width: 1200px) {
     flex-direction: column;
     align-items: center;
+    padding: 8px;
   }
   aside {
     width: 100%;
@@ -91,18 +92,17 @@ export const StyledTetris = styled.div`
         max-width: 300px;
         text-align: center;
         justify-content: space-between;
-        div {
-          max-width: 90px;
-        }
       }    
     }
     @media(max-width: 400px) {
       padding: 0;
-      div {
-        div {
-          font-size: 12px;
-        }      
-      }
     }
   }
 `;
+
+export const DisplayContainer = styled.div`
+  @media(max-width: 300px) {
+    display: flex;
+    flex-direction: column;
+  }
+`
